@@ -42,6 +42,7 @@ You can use the library to create various auto-clickers.
 boaw = Boaw.new
 position = boaw.position # current mouse position {x:1,y:2}
 boaw.left_click(position) # clicks with the left mouse button
+boaw.right_click(position) # clicks with the right mouse button
 ```
 
 An example of a simple autoclicker that will allow you to always stay online in any messenger

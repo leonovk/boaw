@@ -2,10 +2,8 @@
 
 require_relative 'xdotool/adapter'
 
-# Main class
+# The main class from which work with the program begins
 class Boaw
-  attr_reader :adapter
-
   def initialize
     @adapter = Xdotool::Adapter.new
   end
@@ -17,4 +15,12 @@ class Boaw
   def left_click(position)
     adapter.left_click(position)
   end
+
+  def right_click(position)
+    adapter.right_click(position)
+  end
+
+  private
+
+  attr_reader :adapter
 end
