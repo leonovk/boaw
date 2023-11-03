@@ -7,7 +7,12 @@ module Xdotool
   class AdapterTest < Minitest::Test
     def setup
       @position = { x: 1, y: 2 }
-      @adapter = Adapter.new
+
+      mock_kernel = Minitest::Mock.new
+
+      Kernel.stub(:system, true, mock_kernel) do
+        @adapter = Adapter.new
+      end
     end
 
     def test_left_click
