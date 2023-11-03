@@ -20,21 +20,17 @@ class BoawTest < Minitest::Test
   end
 
   def test_left_click
-    position = @position
+    @mock_adapter.expect(:left_click, nil, [@position])
 
-    @mock_adapter.expect(:left_click, nil, [position])
-
-    @boaw.left_click(position)
+    @boaw.left_click(@position)
 
     @mock_adapter.verify
   end
 
   def test_right_click
-    position = @position
+    @mock_adapter.expect(:right_click, nil, [@position])
 
-    @mock_adapter.expect(:right_click, nil, [position])
-
-    @boaw.right_click(position)
+    @boaw.right_click(@position)
 
     @mock_adapter.verify
   end
