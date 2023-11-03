@@ -1,10 +1,16 @@
 # frozen_string_literal: true
 
 require_relative 'position_parser'
+require_relative 'base_error'
 
 module Xdotool
   # Xdotool adapter for mouse control
   class Adapter
+    def initialize
+      result = Kernel.system('xdotool')
+      raise BaseError if result.nil?
+    end
+
     def position
       output = IO.popen('xdotool getmouselocation', &:read)
 

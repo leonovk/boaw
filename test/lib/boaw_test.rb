@@ -6,7 +6,12 @@ require_relative '../test_helper'
 class BoawTest < Minitest::Test
   def setup
     @mock_adapter = Minitest::Mock.new
-    @boaw = Boaw.new
+    mock_kernel = Minitest::Mock.new
+
+    Kernel.stub(:system, true, mock_kernel) do
+      @boaw = Boaw.new
+    end
+
     @boaw.instance_variable_set(:@adapter, @mock_adapter)
     @position = { x: 1, y: 2 }
   end
