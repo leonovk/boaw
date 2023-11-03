@@ -6,28 +6,26 @@ require_relative '../../test_helper'
 module Xdotool
   class AdapterTest < Minitest::Test
     def setup
+      @position = { x: 1, y: 2 }
       @adapter = Adapter.new
-      @position = { x: 100, y: 200 }
     end
 
     def test_left_click
       mock_kernel = Minitest::Mock.new
-      mock_kernel.expect(:system, nil, ['xdotool mousemove 100 200 click 1'])
-
-      Kernel.stub(:system, mock_kernel) do
+      mock_kernel.expect(:system, nil, ['xdotool mousemove 1 2 click 1'])
+      Kernel.stub :system, ->(a) { mock_kernel.system(a) } do
         @adapter.left_click(@position)
-        mock_kernel.verify
       end
+      mock_kernel.verify
     end
 
     def test_right_click
       mock_kernel = Minitest::Mock.new
-      mock_kernel.expect(:system, nil, ['xdotool mousemove 100 200 click 3'])
-
-      Kernel.stub(:system, mock_kernel) do
+      mock_kernel.expect(:system, nil, ['xdotool mousemove 1 2 click 3'])
+      Kernel.stub :system, ->(a) { mock_kernel.system(a) } do
         @adapter.right_click(@position)
-        mock_kernel.verify
       end
+      mock_kernel.verify
     end
   end
 end
