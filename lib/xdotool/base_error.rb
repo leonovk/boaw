@@ -4,7 +4,7 @@ module Xdotool
   # default error
   class BaseError < StandardError
     def message
-      'не удалось инициализировать модуль xdotool'
+      'failed to initialize xdotool module'
     end
   end
 end
