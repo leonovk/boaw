@@ -7,7 +7,7 @@ module Xdotool
   # Xdotool adapter for mouse control
   class Adapter
     def initialize
-      result = Kernel.system('xdotool')
+      result = Kernel.system('xdotool version')
       raise BaseError if result.nil?
     end
 
