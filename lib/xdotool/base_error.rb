@@ -2,7 +2,7 @@
 
 module Xdotool
   # default error
-  class BaseError < StandardError
+  class BaseError < StandardError # :nodoc: all
     def message
       'failed to initialize xdotool module'
     end
