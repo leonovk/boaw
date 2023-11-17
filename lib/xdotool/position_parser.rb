@@ -2,7 +2,7 @@
 
 module Xdotool
   # coordinate position parser from Xdotool
-  class PositionParser
+  class PositionParser # :nodoc: all
     def self.parse(position)
       hash_position = position.scan(/(\w+):(\d+)/).to_h
 

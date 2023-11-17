@@ -5,7 +5,7 @@ require_relative 'base_error'
 
 module Xdotool
   # Xdotool adapter for mouse control
-  class Adapter
+  class Adapter # :nodoc: all
     def initialize
       result = Kernel.system('xdotool version')
       raise BaseError if result.nil?
