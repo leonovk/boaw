@@ -4,7 +4,10 @@ source 'https://rubygems.org'
 
 gemspec
 
-gem 'byebug'
-gem 'minitest'
-gem 'rubocop'
-gem 'rubocop-minitest'
+group :development do
+  gem 'byebug'
+  gem 'minitest'
+  gem 'minitest-reporters'
+  gem 'rubocop'
+  gem 'rubocop-minitest'
+end
